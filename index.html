@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>CodePen - Untitled</title>
+  
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ẇḕḶḉṏṁḕ Ṯṏ ṙṏḃḶṏẌ ṠḉṙḭṖṮ ḕẌṖḶṏḭṮ</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif; /* Use a fallback font */
+            background-image: url('https://i.ibb.co/ZBxncmg/file-3nv-MOn-Q8fs2jedz-Stca6-ZFto-3.webp'); /* Logo as background */
+            background-size: cover; /* Cover the entire background */
+            background-position: center; /* Center the background */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            color: #ffffff; /* Change text color for contrast */
+        }
+        .container {
+            background-color: rgba(0, 0, 0, 0.6); /* Semi-transparent background for readability */
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            width: 400px;
+            text-align: center;
+        }
+        .header {
+            display: flex;
+            align-items: center; /* Center align items vertically */
+            margin-bottom: 20px; /* Space below the header */
+        }
+        .logo {
+            width: 80px; /* Logo size */
+            height: auto; /* Maintain aspect ratio */
+        }
+        h2 {
+            font-size: 24px;
+            margin: 0; /* Remove default margin */
+            margin-left: 10px; /* Space between logo and title */
+            color: #caf0f8; /* Light color for title */
+        }
+        h3 {
+            font-size: 20px; /* Increase size of Sign In / Sign Up heading */
+            font-weight: 700; /* Make it bold */
+            margin-bottom: 15px; /* Space below the heading */
+            color: #90e0ef; /* Bright blue color for headings */
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 20px;
+        }
+        input {
+            margin-bottom: 15px;
+            padding: 10px;
+            font-size: 14px;
+            border: 1px solid #48cae4; /* Border color */
+            border-radius: 5px;
+        }
+        button {
+            padding: 10px;
+            background-color: #0096c7; /* Button background color */
+            color: white;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #00b4d8; /* Lighter button color on hover */
+        }
+        .account-prompt {
+            margin-top: 10px;
+            color: #ffffff; /* Color for account prompt text */
+        }
+        .link {
+            color: #48cae4; /* Link color */
+            text-decoration: none;
+        }
+        .sign-up {
+            display: none; /* Hide sign-up form initially */
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="header">
+        <img src="https://i.ibb.co/ZBxncmg/file-3nv-MOn-Q8fs2jedz-Stca6-ZFto-3.webp" alt="Logo" class="logo">
+        <h2>ẇḕḶḉṏṁḕ Ṯṏ ṙṏḃḶṏẌ ṠḉṙḭṖṮ ḕẌṖḶṏḭṮ</h2>
+    </div>
+    <!-- Sign In Form -->
+    <div class="sign-in" id="sign-in-form">
+        <h3>sɨǥn ɨn</h3> <!-- Updated Sign In heading -->
+        <form id="login-form">
+            <input type="text" id="login-username" placeholder="Username" required>
+            <input type="password" id="login-password" placeholder="Password" required>
+            <button type="submit">Log In</button>
+        </form>
+        <div class="account-prompt">
+            <p>Don't have an account? <a class="link" href="#" id="toggle-sign-up">SƗǤN ᵾⱣ</a></p> <!-- Updated Sign Up link -->
+        </div>
+    </div>
+
+    <!-- Sign Up Form -->
+    <div class="sign-up" id="sign-up-form">
+        <h3>SƗǤN ᵾⱣ</h3> <!-- Updated Sign Up heading -->
+        <form id="signup-form">
+            <input type="text" id="signup-username" placeholder="Username" required>
+            <input type="email" id="signup-email" placeholder="Email" required> <!-- Added Email field -->
+            <input type="password" id="signup-password" placeholder="Password" required>
+            <button type="submit">Create Account</button>
+        </form>
+        <div class="account-prompt">
+            <p>Already have an account? <a class="link" href="#" id="toggle-sign-in">Log In</a></p>
+        </div>
+    </div>
+</div>
+
+<script>
+    const toggleSignUp = document.getElementById('toggle-sign-up');
+    const toggleSignIn = document.getElementById('toggle-sign-in');
+    const signInForm = document.getElementById('sign-in-form');
+    const signUpForm = document.getElementById('sign-up-form');
+
+    toggleSignUp.addEventListener('click', function(event) {
+        event.preventDefault();
+        signInForm.style.display = 'none'; // Hide sign-in form
+        signUpForm.style.display = 'block'; // Show sign-up form
+    });
+
+    toggleSignIn.addEventListener('click', function(event) {
+        event.preventDefault();
+        signInForm.style.display = 'block'; // Show sign-in form
+        signUpForm.style.display = 'none'; // Hide sign-up form
+    });
+
+    // Handle sign-up form submission
+    document.getElementById('signup-form').addEventListener('submit', function(event) {
+        event.preventDefault(); // Prevent form submission
+        const username = document.getElementById('signup-username').value;
+        const email = document.getElementById('signup-email').value; // Get email value
+        const password = document.getElementById('signup-password').value;
+
+        // Save the username, email, and password to localStorage
+        localStorage.setItem('username', username);
+        localStorage.setItem('email', email);
+        localStorage.setItem('password', password);
+
+        alert('Account created successfully! You can now log in.');
+        signUpForm.style.display = 'none'; // Hide sign-up form after successful registration
+        signInForm.style.display = 'block'; // Show sign-in form
+    });
+
+    // Handle sign-in form submission
+    document.getElementById('login-form').addEventListener('submit', function(event) {
+        event.preventDefault(); // Prevent form submission
+        const loginUsername = document.getElementById('login-username').value;
+        const loginPassword = document.getElementById('login-password').value;
+
+        // Retrieve stored username and password from localStorage
+        const storedUsername = localStorage.getItem('username');
+        const storedPassword = localStorage.getItem('password');
+
+        // Check if entered credentials match stored credentials
+        if (loginUsername === storedUsername && loginPassword === storedPassword) {
+            alert('Login successful! Welcome ' + storedUsername + '!');
+            // Display stored email
+            const storedEmail = localStorage.getItem('email');
+            alert('Your email is: ' + storedEmail);
+            // Redirect or perform any action after successful login
+        } else {
+            alert('Invalid username or password. Please try again.');
+        }
+    });
+</script>
+
+</body>
+</html>
+<!-- partial -->
+  
+</body>
+</html>
